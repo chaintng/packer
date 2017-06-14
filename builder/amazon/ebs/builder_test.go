@@ -1,7 +1,6 @@
 package ebs
 
 import (
-	"bytes"
 	"testing"
 
 	"github.com/aws/aws-sdk-go/service/ec2"
@@ -128,42 +127,4 @@ func TestBuilderPrepare_InvalidShutdownBehavior(t *testing.T) {
 	if err == nil {
 		t.Fatal("should have error")
 	}
-}
-
-func createTestStateBagStepStopEbsInstance() multistep.StateBag {
-	// Make a faked UI, instance, and ec2 conection
-	var out, err bytes.Buffer
-	var ui packer.Ui = &packer.BasicUi{
-		Writer:      &out,
-		ErrorWriter: &err,
-	}
-	FakeInstance := &ec2.Instance{
-		InstanceId: aws.String("instance-id"),
-	}
-
-	type FakeEC2Conn struct {
-		*string
-	}
-
-	func (c FakeEC2Conn) StopInstances(input *ec2.StopInstancesInput) (*ec2.StopInstancesOutput, error) {
-		return nil, nil
-	}
-
-	func (c FakeEC2Conn) StopInstances()  {
-		return c.FakeStopInstances()
-	}
-
-	var mockEC2Conn FakeEC2Conn
-
-	// Set up state bag for test using generated state.
-	state := new(multistep.BasicStateBag)
-	state.Put("ec2", mockEC2Conn)
-	state.Put("ui", ui)
-	state.Put("instance", FakeInstance)
-
-	// These are teh states grabbed by step_stop_ebs_instance
-	// ec2conn := state.Get("ec2").(*ec2.EC2)
-	// instance := state.Get("instance").(*ec2.Instance)
-	// ui := state.Get("ui").(packer.Ui)
-
 }
