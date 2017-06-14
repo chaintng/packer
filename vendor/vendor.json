@@ -100,6 +100,12 @@
 			"revision": "4239b77079c7b5d1243b7b4736304ce8ddb6f0f2"
 		},
 		{
+			"checksumSHA1": "8cLCLH/9WPSF8gDo6lr8cNxsuvw=",
+			"path": "github.com/aws/aws-sdk-go",
+			"revision": "705c9bc7222da45642708fb68f0475f941aa373a",
+			"revisionTime": "2017-06-16T17:17:03Z"
+		},
+		{
 			"checksumSHA1": "mocMTDVyOtc9Q4qXF6zuJpivR9c=",
 			"comment": "v1.4.6",
 			"path": "github.com/aws/aws-sdk-go/aws",
@@ -188,6 +194,10 @@
 			"comment": "v1.4.6",
 			"path": "github.com/aws/aws-sdk-go/aws/signer/v4",
 			"revision": "6ac30507cca29249f4d49af45a8efc98b84088ee"
+		},
+		{
+			"path": "github.com/aws/aws-sdk-go/awstesting/mock/mock.go",
+			"revision": ""
 		},
 		{
 			"checksumSHA1": "Bm6UrYb2QCzpYseLwwgw6aetgRc=",
